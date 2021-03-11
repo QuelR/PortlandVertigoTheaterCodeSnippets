@@ -1,0 +1,78 @@
+@model TheatreCMS3.Areas.Production.Models.Productions
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="container h-100 productions-container">
+    <div class=" productions-row">
+        <div class="form-horizontal">
+
+            <h2>Create Production</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.Title)
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "productions-form", placeholder = "Title" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.Playwright)
+            @Html.EditorFor(model => model.Playwright, new { htmlAttributes = new { @class = "productions-form", placeholder = "Playwright" } })
+            @Html.ValidationMessageFor(model => model.Playwright, "", new { @class = "text-danger" })
+                    
+            @Html.LabelFor(model => model.Description)
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "productions-form", placeholder = "Description" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+
+            @Html.LabelFor(model => model.OpeningDay)
+            @Html.EditorFor(model => model.OpeningDay, new { htmlAttributes = new { @class = "productions-form" } })
+            @Html.ValidationMessageFor(model => model.OpeningDay, "", new { @class = "text-danger" })
+
+
+            @Html.LabelFor(model => model.ClosingDay)
+            @Html.EditorFor(model => model.ClosingDay, new { htmlAttributes = new { @class = "productions-form" } })
+            @Html.ValidationMessageFor(model => model.ClosingDay, "", new { @class = "text-danger" })
+
+                @*@Html.LabelFor(model => model.Default)
+                @Html.EditorFor(model => model.Default, new { htmlAttributes = new { @class = "productions-form" } })
+                @Html.ValidationMessageFor(model => model.Default, "", new { @class = "text-danger" })*@
+
+            @Html.LabelFor(model => model.ShowtimeEve)
+            @Html.EditorFor(model => model.ShowtimeEve, new { htmlAttributes = new { @class = "productions-form" } })
+            @Html.ValidationMessageFor(model => model.ShowtimeEve, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.ShowtimeMat)
+            @Html.EditorFor(model => model.ShowtimeMat, new { htmlAttributes = new { @class = "productions-form" } })
+            @Html.ValidationMessageFor(model => model.ShowtimeMat, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.TicketLink)
+            @Html.EditorFor(model => model.TicketLink, new { htmlAttributes = new { @class = "productions-form", placeholder = "Ticket Link" } })
+            @Html.ValidationMessageFor(model => model.TicketLink, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(model => model.Season)
+            @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "productions-form", placeholder = "Season" } })
+            @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
+
+            <div class="productions-form-group">
+                @Html.LabelFor(model => model.IsCurrent)
+                    
+                <div class="productions-ckbox">
+                    @Html.EditorFor(model => model.IsCurrent)
+                    @Html.ValidationMessageFor(model => model.IsCurrent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="Create" class="productions-createSave-btn" />
+    
+    <input type="button" class="productions-b2l-btn" value="Back to List" onclick="location.href ='/Production/Productions'">
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
